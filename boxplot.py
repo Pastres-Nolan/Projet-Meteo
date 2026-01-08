@@ -2,14 +2,11 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import pandas as pd
 
-df = pd.read_csv(
-    "strasbourg_entzheim.csv",
-    sep=";",
-    parse_dates=["time"],
-    dayfirst=True
-)
+# Lecture du fichier CSV
+df = pd.read_csv("strasbourg_entzheim.csv", sep=';')
+df['time'] = pd.to_datetime(df['time'], dayfirst=True)
 
-pd.set_option("display.max_columns", None)  # montre toutes les colonnes
+pd.set_option("display.max_columns", None) # Montre toutes les colonnes
 print(df.describe())
 
 variables = ["tavg", "prcp", "pres", "wspd", "tsun"]
@@ -23,7 +20,7 @@ for var in variables:
     plt.ylabel("Nombre de jours")
     plt.show()
 
-# Boxplots ( moustaches)
+# Boxplots (moustaches)
 for var in variables:
     plt.figure(figsize=(12,6))
     plt.boxplot(df[var].dropna(), vert=False)

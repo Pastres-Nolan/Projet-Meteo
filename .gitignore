@@ -4,5 +4,8 @@ venv/
 # Fichiers compilés Python
 __pycache__/
 
+# Dossier VScode
+.vscode
+
 # Dossier d'indexation inutile de MacOS
 .DS_Store

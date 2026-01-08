@@ -1,18 +1,19 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 
+
 # Lecture du fichier CSV
 df = pd.read_csv("strasbourg_entzheim.csv", sep=';')
 df['time'] = pd.to_datetime(df['time'], dayfirst=True)
 
 # Filtrage par date
-start_date = pd.to_datetime("01/01/1950", dayfirst=True)
-end_date = pd.to_datetime("31/12/2024", dayfirst=True)
+start_date = pd.to_datetime("01/01/2007", dayfirst=True)
+end_date = pd.to_datetime("31/12/2012", dayfirst=True)
 
 mask = (df['time'] >= start_date) & (df['time'] <= end_date)
 df_filtered = df.loc[mask]
 
-# Variables à tracer
+# Variables étudiées
 variables = {
     "Température moyenne (tavg)": df_filtered['tavg'],
     "Température minimale (tmin)": df_filtered['tmin'],
