@@ -9,3 +9,6 @@ __pycache__/
 
 # Dossier d'indexation inutile de MacOS
 .DS_Store
+
+# Autre
+.idea
